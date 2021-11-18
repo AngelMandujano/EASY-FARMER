@@ -1,0 +1,356 @@
+<script>
+    //DATOS DEL TERRENO
+var datosDelTerreno = [];
+var inicio = prompt("CANTIDAD DE TERRENOS A INGRESAR");
+for (var i = 1; i <=inicio; i++){
+    datos(i);
+}
+
+function datos(i){
+    let nombreMarca = prompt("INGRESA EL NOMBRE DE LA MARCA");
+    let nombreTerreno = prompt("INGRESA EL NOMBRE DEL TERRENO");
+    let ubicacionTerreno = prompt("INGRESA LA UBICACION DEL TERRENO)");
+    let medidasDelTerreno = prompt("INGRESA LAS MEDIDAS DEL TERRENO (M2)");
+    let tipodeCultivo = prompt("INGRESA EL TIPO DE CULTIVO");
+    var terreno = {
+        nombreMarca:nombreMarca,
+        nombreTerreno:nombreTerreno,
+        ubicacionTerreno:ubicacionTerreno,
+        medidasDelTerreno:medidasDelTerreno,
+        tipodeCultivo:tipodeCultivo,
+    }
+    datosDelTerreno.push(terreno); // DATOS DEL TERRENO
+ 
+}
+
+ //DATOS DE LA MAQUINARIA  
+
+var datosDelaMaquinaria = [];
+var maquina = prompt("CANTIDAD DE MAQUINARIA A INGRESAR");
+var recomen =[
+        " SE RECOMIENDA REALIZAR EL SERVICIO DENTRO DE UN INTERVALO DE 500 A 1000 HORAS DE USO DE LA MAQUINARIAVERIFICA QUE EL ACEITE SEA EL ADECUADO PARA UN BUEN FUNCIONAMIENTO DEL MOTOR  REMPLAZAR EL FILTRO DE ACEITE PARA UN MEJOR FLUJO CONTINUO DE LUBRICACION  REMPLAZAR EL FILTRO DE COMBUSTIBLE PARA EVITAR OBSTRUCCION EN EL FLUJO DEL MISMO  REVISAR LOS NIVELES DE COMBUSTION ESTOS SON INDISPENSABLES PARA UN BUEN FUNCIONAMIENTO DEL MOTOR REVISAR LOS NIVELES DE COMBUSTION ESTOS SON INDISPENSABLES PARA UN BUEN FUNCIONAMIENTO DEL MOTOR  ES RECOMENDABLE ASISTIR CON SU MECANICO DE CONFIANZA EL PODRA DAR UN DIAGNOSTICO MAS SERTERO DEL ESTADO DEL MOTOR"
+]
+for (var i = 1; i <=maquina; i++){
+    datosMaquinaria(i);
+}
+
+function datosMaquinaria(i){
+    let nombreDelaMaquina =  prompt("INGRESA EL NOMBRE DE LA MAQUINA");
+    let marcaDelaMaquina =  prompt("INGRESA LA MARCA DE LA MAQUINA");
+    let funcionDelaMaquina =  prompt("INGRESA LA FUNCION DE LA MAQUINA)");
+    let horasDeUso =  prompt("INGRESA LAS HORAS DE SERVICIO POR DIA ");
+    var Recomendaciones = recomen;
+    var maquinaria = {
+        nombreDelaMaquina:nombreDelaMaquina,
+       marcaDelaMaquina: marcaDelaMaquina,
+       funcionDelaMaquina: funcionDelaMaquina,
+        horasDeUso:horasDeUso,
+        Recomendaciones:Recomendaciones,
+    }
+
+    datosDelaMaquinaria.push(maquinaria); // DATOS DE LA MAQUINARIA
+ 
+}
+ //DATOS DE LA SEMILLA
+var datosDeLaSemilla = [];
+var semillas = prompt("CANTIDAD DE SEMILLAS A INGRESAR");
+for (var i = 1; i <=semillas; i++){
+    datosSemilla(i);
+}
+function datosSemilla(i){
+    let nombreDelaSemilla = prompt("INGRESA EL NOMBRE DE LA SEMILLA");
+    let nombreDelProducto = prompt("INGRESA EL NOMBRE DEL PRODUCTO O TIPO DE CULTIVO");
+    let cantidadDeSemillaPorTonelada = prompt("INGRESA LA CANTIDAD DE SEMILLAS POR TONELADA O UNIDAD)");
+    let fechaDeSiembra = prompt("INGRESA LA FECHA DE SIEMBRA");
+    var semilla = {
+        nombreDelaSemilla:nombreDelaSemilla,
+        nombreDelProducto:nombreDelProducto,
+        cantidadDeSemillaPorTonelada:cantidadDeSemillaPorTonelada,
+        fechaDeSiembra:fechaDeSiembra,
+    }
+    datosDeLaSemilla.push(semilla); // DATOS DE LA SEMILLA
+ 
+}
+
+//FUNCIONES
+alert("OPERACIONES QUE SE PUEDEN REALIZAR"+""+"\nINFORMACION DEL TERRENO: "+"(1)"+"\nINFORMACION DE LA MAQUINARIA: "+"(2)"+"\nINFORMACION DE LAS SEMILLAS: "+"(3)"+"\nCALCULAR EL USO DE FERTILIZANTE: " + "(4)"+"\nCALCULAR SI EL SERVICIO DE LA MAQUINARIA ES NECESARIO: " + "(5)");
+var info = prompt("¿Quieres realizar alguna operación?:");
+if(info == "si"){
+    retorno();
+}
+else{
+    alert("GRACIAS POR UTILIZAR NUESTRO SOFTWARE");
+}
+
+
+function retorno(){
+alert("OPERACIONES QUE SE PUEDEN REALIZAR"+""+"\nINFORMACION DEL TERRENO: "+"(1)"+"\nINFORMACION DE LA MAQUINARIA: "+"(2)"+"\nINFORMACION DE LAS SEMILLAS: "+"(3)"+"\nCALCULAR EL USO DE FERTILIZANTE: " + "(4)"+"\nCALCULAR SI EL SERVICIO DE LA MAQUINARIA ES NECESARIO: " +" (5)");
+var op = prompt("Ingresa la operación que quieres realizar");
+
+var  x = "no";
+switch(op){
+    
+    case "1":
+    var nombreTerreno = "";
+          for(let i = 0; i < datosDelTerreno.length; i++){
+            nombreTerreno += datosDelTerreno[i].nombreTerreno+"\n";
+          }
+          alert("Terrenos actuales: \n"+nombreTerreno);
+    var     nombreTerreno = prompt("Ingresa el nombre del terreno");
+                    for(let i = 0; i < datosDelTerreno.length; i++){
+                        if(datosDelTerreno[i].nombreTerreno == nombreTerreno){
+                            alert("Nombre de la marca: "+datosDelTerreno[i].nombreMarca+"\nNombre del terreno: "+datosDelTerreno[i].nombreTerreno+"\nUbicacion del terreno: "+datosDelTerreno[i].ubicacionTerreno+"\nMedidas del terreno: "+datosDelTerreno[i].medidasDelTerreno+"\nTipo de cultivo: "+datosDelTerreno[i].tipodeCultivo);
+                        }
+                    }
+    break;
+    case "2":
+    var nombreDelaMaquina = "";
+          for(let i = 0; i < datosDelaMaquinaria.length; i++){
+            nombreDelaMaquina += datosDelaMaquinaria[i].nombreDelaMaquina+"\n";
+          }
+          alert("Maquinas actuales: \n"+nombreDelaMaquina);
+    var     nombreDelaMaquina = prompt("Ingrese el nombre de la maquinaria");
+                    for(let i = 0; i < datosDelaMaquinaria.length; i++){
+                        if(datosDelaMaquinaria[i].nombreDelaMaquina == nombreDelaMaquina){
+                            alert("Nombre de la maquina: "+datosDelaMaquinaria[i].nombreDelaMaquina+"\nMarca de la maquina: "+datosDelaMaquinaria[i].marcaDelaMaquina+"\nFuncion de la maquinaria: "+datosDelaMaquinaria[i].funcionDelaMaquina+"\nHoras de servicio por dia: "+datosDelaMaquinaria[i].horasDeUso+"\n:Recomendacion de servicio"+datosDelaMaquinaria[i].Recomendaciones+"\n");   
+    
+                        }
+                    }
+    break;      
+      
+    case "3":
+    var nombreDelaSemilla = "";
+          for(let i = 0; i < datosDeLaSemilla.length; i++){
+            nombreDelaSemilla += datosDeLaSemilla[i].nombreDelaSemilla+"\n";
+          }
+          alert("Semillas actuales: \n"+nombreDelaSemilla);
+    var     nombreDelaSemilla = prompt("Ingrese el nombre de la Semilla");
+                    for(let i = 0; i < datosDeLaSemilla.length; i++){
+                        if(datosDeLaSemilla[i].nombreDelaSemilla == nombreDelaSemilla){
+                            alert("Nombre de la Semilla: "+datosDeLaSemilla[i].nombreDelaSemilla+"\nNombre del producto o cultivo: "+datosDeLaSemilla[i].nombreDelProducto+"\nCantidad de Semillas: "+datosDeLaSemilla[i].cantidadDeSemillaPorTonelada+"\nFecha de siembra: "+datosDeLaSemilla[i].fechaDeSiembra+"\n");   
+    
+                        }
+                    }
+    break;
+    case "4":
+        fertilizantes();
+        break;
+    case "5":
+        calculaServicioDeMaquinaria();
+    break;
+}
+    
+
+
+
+
+        var info = prompt("¿Quieres realizar alguna operación?:");
+        
+if(info == "si"){
+    retorno();
+}
+else{
+    alert("GRACIAS POR UTILIZAR NUESTRO SOFTWARE");
+}
+        }
+    
+ //DATOS DE FERTILIZANTES
+
+function maiz (){
+    var maiz = {
+        recomendaciones: "Estos compuestos son recomendados para una buena fertilizacion de la siembra ",
+        NITROGENO:"NITROGENO: 0.025kg por kg de semilla",
+        POTASIO:"POTASIO: 0.02kg por por kg de semilla",
+        FOSFORO:"FOSFORO: 0.01kg por por kg de semilla",
+        
+    }
+    var porcion = {
+        recomendaciones: "Estos compuestos son recomendados para una buena fertilizacion de la siembra ",
+        NITROGENO:"0.025kg",
+        POTASIO:"0.02kg",
+        FOSFORO:"0.01kg",
+        
+    }
+alert(maiz.recomendaciones+"\n"+maiz.NITROGENO+"\n"+maiz.POTASIO+"\n"+maiz.FOSFORO);
+}
+
+function tomate (){
+    var tomate = {
+        recomendaciones: "Estos compuestos son recomendados para una buena fertilizacion de la siembra ",
+        NITROGENO:"NITROGENO: 0.0022kg por kg de semilla",
+        POTASIO:"POTASIO: 0.0039kg por kg de semilla",
+        FOSFORO:"FOSFORO: 0.0005kg por kg de semilla",
+    }
+    alert(tomate.recomendaciones+"\n"+tomate.NITROGENO+"\n"+tomate.POTASIO+"\n"+tomate.FOSFORO);
+    }
+     
+function trigo (){
+    var trigo = {
+        recomendaciones: "Estos compuestos son recomendados para una buena fertilizacion de la siembra ",
+        NITROGENO:"NITROGENO: 0.03125kg por kg de semilla",
+        POTASIO:"POTASIO: 0.026kg por kg de semilla",
+        FOSFORO:"FOSFORO: 0.011kg por kg de semilla",
+    }
+    var porcion = {
+       
+        NITROGENO:"0.03125kg",
+        POTASIO:"0.026kg",
+        FOSFORO:"0.011kg",
+    }
+    alert(trigo.recomendaciones+"\n"+trigo.NITROGENO+"\n"+trigo.POTASIO+"\n"+trigo.FOSFORO);
+}     
+   
+//SWITCH PARA LAS OPCIONES DE FERTILIZANTES
+
+function fertilizantes(){
+    var operacion = prompt("Ingresa el nombre del producto: ejemplo (maiz)");
+switch(operacion){
+    case "maiz":
+        calculadoraMaiz();
+    break;
+    case "tomate":
+        calculadoraTomate();
+    break;
+    case "trigo":
+        calculadoraTrigo();
+    break;
+    case "MAIZ":
+        calculadoraMaiz();
+    break;
+    case "TOMATE":
+        calculadoraTomate();
+    break;
+    case "TRIGO":
+        calculadoraTrigo();
+    break;
+    
+    default:
+        alert("OPERACION NO VALIDA");
+    break;
+    
+}
+}
+
+//CALCULADORA
+function calculadoraMaiz(){
+
+maiz();
+ var x1;
+var x2;
+var x3;
+var x4;
+ x1 = (0.025);
+ x2 = (0.02);
+ x3 = (0.01);
+var total1= (x1+x2+x3);
+x4= parseInt(prompt("Ingresa los kilogramos  de semillas que se fertilizaran"));
+var nitrogeno = (x1*x4);
+var potasio = (x2*x4);
+var fosforo = (x3*x4);
+var totalmaiz = (x4*total1);
+alert("NITROGENO: "+nitrogeno+"kg"+"\nPOTASIO: "+potasio+"kg"+"\nFOSFORO: "+fosforo+"kg"+"\nTOTAL: "+totalmaiz+"kg "+"POR "+x4 +"KILOGRAMOS DE SEMILLAS");
+}
+
+function calculadoraTomate(){
+tomate();
+var x1;
+var x2;
+var x3;
+ x1 = (0.0022);
+ x2 = (0.0039);
+ x3 = (0.0005);
+var total2= (x1+x2+x3);
+x4= parseInt(prompt("Ingresa los kilogramos de semillas que se fertilizaran"));
+var nitrogeno = (x1*x4);
+var potasio = (x2*x4);
+var fosforo = (x3*x4);
+var totaltomate = (x4*total2);
+alert("NITROGENO: "+nitrogeno+"kg"+"\nPOTASIO: "+potasio+"kg"+"\nFOSFORO: "+fosforo+"kg"+"\nTOTAL: "+totaltomate+"kg "+"POR "+x4 + "kILOGRAMOS DE SEMILLA ");
+}
+
+function calculadoraTrigo(){
+trigo();
+var x1;
+var x2;
+var x3;
+ x1 = (0.03125);
+ x2 = (0.026);
+ x3 = (0.011);
+var total3= (x1+x2+x3);
+x4= parseInt(prompt("Ingresa los kilogramos  de semillas que se fertilizaran"));
+var nitrogeno = (x1*x4);
+var potasio = (x2*x4);
+var fosforo = (x3*x4);
+var totaltrigo = (x4*total3);
+alert("NITROGENO: "+nitrogeno+"kg"+"\nPOTASIO: "+potasio+"kg"+"\nFOSFORO: "+fosforo+"kg"+"\nTOTAL: "+totaltrigo+"kg "+"POR "+ x4 + "KILOGRAMOS DE SEMILLA");
+}
+
+function calculaServicioDeMaquinaria(){
+alert("SE RECOMIENDA REALIZAR EL SERVICIO DE LA MAQUINARIA EN UN INTERVALO DE 500 A 1000 HORAS DE USO");
+
+var x1;
+var x2;
+var x3;
+ x1 = parseInt(prompt("Ingresa el numero de horas que se usa la maquinaria"));
+ x2 = parseInt(prompt("Ingresa el numero de dias que la maquina es utilizada"));
+ x3 = (x1*x2);
+var total4= (x1*x2);
+if(x3 <= 499){
+    alert("AUN QUEDAN HORAS DE USO ES MUY PRONTO PARA REALIZAR EL SERVICIO"+"\nEl numero de dias de uso de la maquinaria es de: "+x2+" dias"+"\nEl numero de horas de uso de la maquinaria es de: "+x1+" horas"+"\nEl numero de horas de uso de la maquinaria es de: "+x3+" horas");
+}
+if(total4 == 500){
+    alert("Es el momento de contemplar el servicio"+"\nEl numero de dias de uso de la maquinaria es de: "+x2+" dias"+"\nEl numero de horas de uso de la maquinaria es de: "+x1+" horas"+"\nEl numero de horas de uso de la maquinaria es de: "+x3+" horas");
+
+}
+
+if(total4 >= 501 && x3 <= 800){
+    alert("Es el momento de realizar el servicio"+"\nEl numero de dias de uso de la maquinaria es de: "+x2+" dias"+"\nEl numero de horas de uso de la maquinaria es de: "+x1+" horas"+"\nEl numero de horas de uso de la maquinaria es de: "+x3+" horas");
+
+}
+
+if(total4 >= 801 && x3 <= 998){
+    alert("Es urgente realizar el servicio"+"\nEl numero de dias de uso de la maquinaria es de: "+x2+" dias"+"\nEl numero de horas de uso de la maquinaria es de: "+x1+" horas"+"\nEl numero de horas de uso de la maquinaria es de: "+x3+" horas");
+
+}
+
+if(total4 >= 1000){
+    alert("ES (URGENTE) REALIZAR EL SERVICIO RECUERDA QUE EL MOTOR PUEDE DAÑARSE"+"\nEl numero de dias de uso de la maquinaria es de: "+x2+" dias"+"\nEl numero de horas de uso de la maquinaria es de: "+x1+" horas"+"\nEl numero de horas de uso de la maquinaria es de: "+x3+" horas");
+
+}
+}
+
+function Rmaquinaria(){
+    var recomen =[
+        " SE RECOMIENDA REALIZAR EL SERVICIO DENTRO DE UN INTERVALO DE 500 A 1000 HORAS DE USO DE LA MAQUINARIAVERIFICA QUE EL ACEITE SEA EL ADECUADO PARA UN BUEN FUNCIONAMIENTO DEL MOTOR  REMPLAZAR EL FILTRO DE ACEITE PARA UN MEJOR FLUJO CONTINUO DE LUBRICACION  REMPLAZAR EL FILTRO DE COMBUSTIBLE PARA EVITAR OBSTRUCCION EN EL FLUJO DEL MISMO  REVISAR LOS NIVELES DE COMBUSTION ESTOS SON INDISPENSABLES PARA UN BUEN FUNCIONAMIENTO DEL MOTOR REVISAR LOS NIVELES DE COMBUSTION ESTOS SON INDISPENSABLES PARA UN BUEN FUNCIONAMIENTO DEL MOTOR  ES RECOMENDABLE ASISTIR CON SU MECANICO DE CONFIANZA EL PODRA DAR UN DIAGNOSTICO MAS SERTERO DEL ESTADO DEL MOTOR"
+]
+         }
+         
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
